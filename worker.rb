@@ -44,6 +44,7 @@ class SortWorker
   def perform
     client = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
     sorter = DropboxSort.new(client)
+    logger ||= Logger.new(STDOUT)
     logger.info 'Start sorting'
     sorter.sort('/Camera Uploads', '/Pictures') { |src, dest|
       logger.info "#{src} -> #{dest}"
