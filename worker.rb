@@ -23,7 +23,7 @@ class DropboxSort
         sort(c['path'], to_root)
       elsif c['mime_type'] == 'image/jpeg'
         raw_date = c['photo_info'] && c['photo_info']['time_taken'] || c['client_mtime']
-        date = DateTime.parse(c['client_mtime'])
+        date = DateTime.parse(raw_date)
         from = c['path']
         to = "#{to_root}/#{date.year}/#{date.month} #{MONTHS[date.month - 1]} - #{date.year}/#{File.basename(from, '.*')}.jpg"
         @client.file_move(from, to)
