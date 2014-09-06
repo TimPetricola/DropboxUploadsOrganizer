@@ -1,2 +1,2 @@
 require './worker'
-SortWorker.perform
+SortWorker.perform_async
