@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require 'sidekiq'
 require 'dropbox_sdk'
 
