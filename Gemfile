@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.3.3'
 
-gem 'sidekiq', '~> 3.2.1'
-gem 'dropbox-sdk', github: 'TimPetricola/dropbox-sdk-ruby'
+gem 'sidekiq', '~> 5.0.5'
+gem 'dropbox_api'
