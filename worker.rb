@@ -34,7 +34,7 @@ class DropboxSort
             yield(from, to) if block_given?
           rescue DropboxApi::Errors::FileConflictError
           end
-        elsif File.extname(from) == ".mp4"
+        elsif [".mp4", ".mov"].include?(File.extname(from))
           to = "#{to_root}/Videos/#{File.basename(from)}"
           begin
             @client.move(from, to)
