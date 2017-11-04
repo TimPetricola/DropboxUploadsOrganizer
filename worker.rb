@@ -29,12 +29,18 @@ class DropboxSort
           next unless date
 
           to = "#{to_root}/#{date.year}/#{date.month} #{MONTHS[date.month - 1]} - #{date.year}/#{File.basename(from, '.*')}.jpg"
-          @client.move(from, to)
-          yield(from, to) if block_given?
+          begin
+            @client.move(from, to)
+            yield(from, to) if block_given?
+          rescue DropboxApi::Errors::FileConflictError
+          end
         elsif File.extname(from) == ".mp4"
           to = "#{to_root}/Videos/#{File.basename(from)}"
-          @client.move(from, to)
-          yield(from, to) if block_given?
+          begin
+            @client.move(from, to)
+            yield(from, to) if block_given?
+          rescue DropboxApi::Errors::FileConflictError
+          end
         end
       end
     end
