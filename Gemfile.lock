@@ -22,6 +22,8 @@ GEM
     rack-protection (2.0.0)
       rack
     redis (4.0.1)
+    redis-namespace (1.6.0)
+      redis (>= 3.0.4)
     sidekiq (5.0.5)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -33,6 +35,7 @@ PLATFORMS
 
 DEPENDENCIES
   dropbox_api
+  redis-namespace
   sidekiq (~> 5.0.5)
 
 RUBY VERSION
